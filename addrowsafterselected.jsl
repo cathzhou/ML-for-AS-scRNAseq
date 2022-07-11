@@ -1,0 +1,9 @@
+Names Default To Here( 1 );
+dt = Open( "/Users/catherinez/Research/belnet_prop_test_0to3.jmp" );
+
+SR = dt << Get Selected Rows;  // Get list of selected rows 
+
+For( i = 1, i <= N Rows( SR ), i++,
+	dt << Add Rows( 1, SR[i] ); // Add 1 row after each selected row
+	SR = dt << Get Selected Rows;
+);
